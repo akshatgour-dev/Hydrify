@@ -41,18 +41,3 @@ jobs:
           context: .
           push: true
           tags: gaura/hydrify-android:latest
-
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v4
-      with:
-        version: 'latest'
-
-    - name: Set up Kubeconfig
-      run: |
-        echo "${{ secrets.KUBECONFIG }}" > kubeconfig
-        export KUBECONFIG=$PWD/kubeconfig
-
-    # - name: Deploy to Kubernetes
-    #   run: |
-    #     kubectl apply -f hydrify-deployment.yaml
-    #     kubectl apply -f hydrify-service.yaml
