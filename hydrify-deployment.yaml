@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hydrify-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hydrify
+  template:
+    metadata:
+      labels:
+        app: hydrify
+    spec:
+      containers:
+      - name: hydrify
+        image: akshatgr/hydrify-android:latest
+        ports:
+        - containerPort: 80
